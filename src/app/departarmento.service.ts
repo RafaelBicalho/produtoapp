@@ -27,8 +27,8 @@ export class DepartarmentoService {
     console.log(this.departamentoss);
 
   }
-  getdepartamentById(id : number): Departamento  | undefined {
-     return this.departamentoss.find((d) => d.id == id);
+  getdepartamentById(id: number): Departamento | undefined {
+    return this.departamentoss.find((d) => d.id == id);
   }
 
 }

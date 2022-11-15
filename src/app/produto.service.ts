@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { timeStamp } from 'console';
+import { DepartarmentoService } from './departarmento.service';
 import { Produto } from "./models/produto.model";
 
 @Injectable({
@@ -16,7 +17,18 @@ export class ProdutoService {
 
   produtoss: Produto[] = [];
 
-  constructor() { }
+  constructor(    private departamentoService : DepartarmentoService ) 
+  { 
+    for (let p of this.dataFromServer){
+      this.produtoss.push({
+        id: p.id,
+        nome: p.nome,
+        descricao: p.descricao,
+        preco:  p.preco,
+        departamento: this.departamentoService.getdepartamentById(p.id)
+      });
+    }
+  }
   getProduto(): Produto[]{
     return this.produtoss
   }
