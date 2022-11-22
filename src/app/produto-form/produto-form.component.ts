@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DepartarmentoService } from '../departarmento.service';
 import { Departamento } from '../models/departamento.model';
+import { ProdutoService } from '../produto.service';
 
 @Component({
   selector: 'app-produto-form',
@@ -7,17 +9,22 @@ import { Departamento } from '../models/departamento.model';
   styleUrls: ['./produto-form.component.css']
 })
 export class ProdutoFormComponent implements OnInit {
+  [x: string]: any;
 
 
   name : string = '';
     price: number = 0 ;
   description: string = '';
-  departamentos!: Departamento[];
+  departamentoos!: Departamento[];
 
 
-  constructor() { }
+  constructor(
+      produtoService : ProdutoService,
+      departamentoService : DepartarmentoService 
+  ) { }
 
   ngOnInit(): void {
+    this.departamentoos = this['departamentoService'].getdepartament();
   }
     
 
