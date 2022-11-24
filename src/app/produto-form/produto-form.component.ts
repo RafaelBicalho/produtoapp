@@ -9,29 +9,27 @@ import { ProdutoService } from '../produto.service';
   styleUrls: ['./produto-form.component.css']
 })
 export class ProdutoFormComponent implements OnInit {
-  [x: string]: any;
-
 
   name : string = '';
-    price: number = 0 ;
+    price:number=0;
   description: string = '';
-  departamentoos!: Departamento[];
+  departamentoos:Departamento[]=[];
 
 
   constructor(
-      produtoService : ProdutoService,
-      departamentoService : DepartarmentoService 
-  ) { }
+    private departamentoService : DepartarmentoService,
+    private  produtoService : ProdutoService
+     ) { }
 
-  ngOnInit(): void {
-    this.departamentoos = this['departamentoService'].getdepartament();
+  ngOnInit()   {
+     this.departamentoos = this.departamentoService.getdepartament();
   }
     
 
 save() {
 
 }
-
+ 
 clear() {
 
 }

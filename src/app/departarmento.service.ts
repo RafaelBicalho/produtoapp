@@ -6,29 +6,31 @@ import { Departamento } from "./models/departamento.model";
 })
 export class DepartarmentoService {
 
-  departamentoss: Departamento[] = [
+  private departamentosss: Departamento[] = [
     { id: 1, nome: "contabil" },
     { id: 2, nome: "RH" },
     { id: 3, nome: "Info" },
-    { id: 4, nome: "Compras" },
+    { id: 4, nome: "Compras" }
   ];
 
-  nextid: number = 5;
-
-
+  private nextid: number =5;
+    
+           
   constructor() { }
 
   getdepartament(): Departamento[] {
-    return this.departamentoss
+    return this.departamentosss;
   }
 
+
+
   adddepartament(d: Departamento) {
-    this.departamentoss.push({ ...d, id: this.nextid++ });
-    console.log(this.departamentoss);
+    this.departamentosss.push({ ...d, id: this.nextid++ });
+    console.log(this.departamentosss);
 
   }
   getdepartamentById(id: number): Departamento | undefined {
-    return this.departamentoss.find((d) => d.id == id);
+    return this.departamentosss.find((d) => d.id == id);
   }
 
 }

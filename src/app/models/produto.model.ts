@@ -5,5 +5,5 @@ id?:number;
 nome:string;
 preco: number;
 descricao:string;
-departamento:Departamento[];
+departamento?:Departamento;
 }
